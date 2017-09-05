@@ -1,0 +1,46 @@
+<h3>SEPA Direct Debit Mandate</h3>
+
+<p>By providing your IBAN and confirming this payment, you are authorizing "Your Company Name" and Mollie,
+    our payment service provider, to send instructions to your bank to debit your account and your bank to debit
+    your account in accordance with those instructions.
+    You are entitled to a refund from your bank under the terms and conditions of your agreement with your bank.
+        A refund must be claimed within 8 weeks starting from the date on which your account was debited.</p>
+
+<h4>Creditor details:</h4>
+<table border="1">
+    <tr>
+        <th>Creditor Identifier</th>
+        <td>Your creditor id</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>Creditor name</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>Creditor Address</td>
+    </tr>
+</table>
+
+<h4>Customer details:</h4>
+<table border="1">
+    <tr>
+        <th>IBAN</th>
+        <td>{{ model.details.consumerAccount }}</td>
+    </tr>
+    <tr>
+        <th>Holder name</th>
+        <td>{{ model.details.consumerName }}</td>
+    </tr>
+</table>
+
+<p>Date of signing: {{ model.signatureDate }}</p>
+
+
+<form method="post" action="{{ actionUrl }}">
+    <input type="hidden" name="mandate_id" value="{{ model.id }}"/>
+
+    <button type="submit">Confirm</button>
+</form>
+
+<a href="{{ cancelUrl }}">Go Back</a>
