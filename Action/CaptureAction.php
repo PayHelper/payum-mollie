@@ -2,7 +2,6 @@
 
 namespace Sourcefabric\Payum\Mollie\Action;
 
-use LogicException;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayAwareInterface;
@@ -10,7 +9,6 @@ use Payum\Core\GatewayAwareTrait;
 use Payum\Core\Request\Capture;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Request\GetHttpRequest;
-use Payum\Core\Request\ObtainCreditCard;
 use Payum\Core\Security\GenericTokenFactoryAwareInterface;
 use Payum\Core\Security\GenericTokenFactoryInterface;
 use Sourcefabric\Payum\Mollie\Request\Api\CreateCapture;
@@ -53,30 +51,6 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTo
             // if open mark as pending or authorized
             return;
         }
-
-        //        if (false == $model['_completeCaptureRequired']) {
-        //            if (false == $model->validateNotEmpty(array('card'), false) && false == $model->validateNotEmpty(array('cardReference'), false)) {
-        //                try {
-        //                    $obtainCreditCard = new ObtainCreditCard($request->getFirstModel(), $request->getModel());
-        //                    $this->gateway->execute($obtainCreditCard);
-        //                    $card = $obtainCreditCard->obtain();
-        //                    if ($card->getToken()) {
-        //                        $model['cardReference'] = $card->getToken();
-        //                    } else {
-        //                        $model['card'] = SensitiveValue::ensureSensitive(array(
-        //                                    'number' => $card->getNumber(),
-        //                                    'cvv' => $card->getSecurityCode(),
-        //                                    'expiryMonth' => $card->getExpireAt()->format('m'),
-        //                                    'expiryYear' => $card->getExpireAt()->format('y'),
-        //                                    'firstName' => $card->getHolder(),
-        //                                    'lastName' => '',
-        //                                ));
-        //                    }
-        //                } catch (RequestNotSupportedException $e) {
-        //                    throw new LogicException('Credit card details has to be set explicitly or there has to be an action that supports ObtainCreditCard request.');
-        //                }
-        //            }
-        //        }
 
         if (false == $model['returnUrl'] && $request->getToken()) {
             $model['returnUrl'] = $request->getToken()->getTargetUrl();

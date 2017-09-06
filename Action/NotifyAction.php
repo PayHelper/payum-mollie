@@ -24,6 +24,7 @@ class NotifyAction extends BaseApiAwareAction
         RequestNotSupportedException::assertSupports($this, $request);
 
         $this->gateway->execute($httpRequest = new GetHttpRequest());
+
         $postParams = [];
         parse_str($httpRequest->content, $postParams);
         $model = ArrayObject::ensureArrayObject($request->getModel());
