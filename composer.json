@@ -27,10 +27,10 @@
     "autoload": {
         "psr-4": {
             "Sourcefabric\\Payum\\Mollie\\": ""
-        },
-        "autoload-dev": {
-            "psr-4": { "Sourcefabric\\Payum\\Mollie\\spec\\": "spec/" }
         }
+    },
+    "autoload-dev": {
+        "psr-4": { "Sourcefabric\\Payum\\Mollie\\spec\\": "spec/" }
     },
     "extra": {
         "branch-alias": {
