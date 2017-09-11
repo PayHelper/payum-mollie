@@ -43,8 +43,8 @@ Supported methods
 
 Check the documentation for each payment method to find out which fields are requred in order to make use of the methods.
 
-- SEPA Direct Debit
-- Credit Card
+- [SEPA Direct Debit](Resources/doc/sepa_direct_debit.md)
+- [Credit Card](Resources/doc/credit_card.md)
 
 Symfony integration
 -------------------
