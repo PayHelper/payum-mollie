@@ -4,6 +4,7 @@ Recurring SEPA Direct Debits are supported.
 
 * [Capture](#capture)
 * [Create Mandate](#create-mandate)
+* [Symfony integration](#symfony-integration)
 
 ## Capture
 
@@ -65,7 +66,7 @@ class PaymentController extends Controller
         $details['method'] = 'directdebit';
         $details['currency'] = 'EUR';
         $details['amount'] = 5;
-        $details['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489')';
+        $details['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489');
         $details['sepaHolder'] = 'Doe';
         $details['interval'] = '1 month'; // 1 month, 3 months, 1 year etc.
         $details['startDate'] = '2017-09-01'; // in yyyy-mm-dd format or leave empty to set current date
