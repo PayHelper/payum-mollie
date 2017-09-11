@@ -34,7 +34,7 @@ use Sourcefabric\Payum\Mollie\Request\Api\CreateSepaMandate;
 
 $payment = [];
 $payment['method'] = 'directdebit';
-$payment['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489')';
+$payment['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489');
 $payment['sepaHolder'] = 'Doe';
 
 $payum
