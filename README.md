@@ -93,4 +93,4 @@ $gateway = $this->get('payum')->getGeteway('mollie');
 
 License
 -------
-This library is licensed under the GNU GPLv3 license.
+This library is licensed under the [GNU GPLv3](LICENSE) license.

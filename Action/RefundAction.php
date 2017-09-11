@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sourcefabric\Payum\Mollie\Action;
 
 use Payum\Core\Action\ActionInterface;

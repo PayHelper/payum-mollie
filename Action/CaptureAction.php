@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sourcefabric\Payum\Mollie\Action;
 
 use Payum\Core\Action\ActionInterface;
@@ -45,10 +47,6 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTo
 
         if (isset($model['payment']) && in_array($model['payment']['status'], ['cancelled', 'pending', 'failed', 'refunded', 'open'], true)) {
             // payload will be send to the notify url
-            dump($model['notifyUrl']);
-            die;
-
-            // if open mark as pending or authorized
             return;
         }
 
@@ -56,8 +54,13 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTo
             $model['returnUrl'] = $request->getToken()->getTargetUrl();
         }
 
-        if (false == $model['cancelUrl'] && $request->getToken()) {
-            $model['cancelUrl'] = $request->getToken()->getTargetUrl().'?cancelled=1';
+        if (null === $model['cancelUrl'] && $request->getToken() && $this->tokenFactory) {
+            $cancelToken = $this->tokenFactory->createCancelToken(
+                $request->getToken()->getGatewayName(),
+                $request->getToken()->getDetails()
+            );
+
+            $model['cancelUrl'] = $cancelToken->getTargetUrl();
         }
 
         if (empty($model['notifyUrl']) && $request->getToken() && $this->tokenFactory) {

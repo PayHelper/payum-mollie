@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sourcefabric\Payum\Mollie\Request\Api;
 
 use Payum\Core\Request\Generic;
@@ -12,12 +14,12 @@ class GetPaymentDetails extends Generic
     protected $paymentId;
 
     /**
-     * GetSubscription constructor.
+     * GetPaymentDetails constructor.
      *
-     * @param mixed  $model
-     * @param string $paymentId
+     * @param \ArrayAccess $model
+     * @param string       $paymentId
      */
-    public function __construct($model, $paymentId)
+    public function __construct(\ArrayAccess $model, string $paymentId)
     {
         parent::__construct($model);
 
@@ -27,7 +29,7 @@ class GetPaymentDetails extends Generic
     /**
      * @return string
      */
-    public function getPaymentId()
+    public function getPaymentId(): string
     {
         return $this->paymentId;
     }
