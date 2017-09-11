@@ -2,6 +2,7 @@
 
 namespace Sourcefabric\Payum\Mollie;
 
+use Sourcefabric\Payum\Mollie\Action\Api\CancelRecurringSubscriptionAction;
 use Sourcefabric\Payum\Mollie\Action\Api\CreateCaptureAction;
 use Sourcefabric\Payum\Mollie\Action\Api\CreateCustomerAction;
 use Sourcefabric\Payum\Mollie\Action\Api\CreateRecurringSubscriptionAction;
@@ -36,6 +37,7 @@ class MollieGatewayFactory extends GatewayFactory
             'payum.action.convert_payment' => new ConvertPaymentAction(),
             'payum.action.api.capture' => new CreateCaptureAction(),
             'payum.action.api.create_customer' => new CreateCustomerAction(),
+            'payum.action.api.cancel_recurring_subscription' => new CancelRecurringSubscriptionAction(),
             'payum.action.api.create_sepa_mandate' => function (ArrayObject $config) {
                 return new CreateSepaMandateAction($config['payum.template.sepa_mandate_confirmation']);
             },

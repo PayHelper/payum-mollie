@@ -4,14 +4,12 @@ namespace Sourcefabric\Payum\Mollie\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
+use Payum\Core\Exception\LogicException;
 use Payum\Core\Exception\RequestNotSupportedException;
-use Payum\Core\GatewayAwareTrait;
 use Payum\Core\Request\Cancel;
 
 class CancelAction implements ActionInterface
 {
-    use GatewayAwareTrait;
-
     /**
      * {@inheritdoc}
      *
@@ -19,11 +17,13 @@ class CancelAction implements ActionInterface
      */
     public function execute($request)
     {
+        // cancel normal payments
+
         RequestNotSupportedException::assertSupports($this, $request);
 
         $model = ArrayObject::ensureArrayObject($request->getModel());
 
-        throw new \LogicException('Not implemented');
+        throw new LogicException('Not implemented');
     }
 
     /**
@@ -33,7 +33,9 @@ class CancelAction implements ActionInterface
     {
         return
             $request instanceof Cancel &&
-            $request->getModel() instanceof \ArrayAccess
+            $request->getModel() instanceof \ArrayAccess &&
+            isset($request->getModel()['payment']) &&
+            'payment' === $request->getModel()['payment']['resource']
         ;
     }
 }
