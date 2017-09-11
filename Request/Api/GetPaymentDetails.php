@@ -16,10 +16,10 @@ class GetPaymentDetails extends Generic
     /**
      * GetPaymentDetails constructor.
      *
-     * @param \ArrayAccess $model
-     * @param string       $paymentId
+     * @param array  $model
+     * @param string $paymentId
      */
-    public function __construct(\ArrayAccess $model, string $paymentId)
+    public function __construct(array $model, string $paymentId)
     {
         parent::__construct($model);
 

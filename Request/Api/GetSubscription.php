@@ -16,10 +16,10 @@ class GetSubscription extends Generic
     /**
      * GetSubscription constructor.
      *
-     * @param \ArrayAccess $model
-     * @param string       $subscriptionId
+     * @param array  $model
+     * @param string $subscriptionId
      */
-    public function __construct(\ArrayAccess $model, string $subscriptionId)
+    public function __construct(array $model, string $subscriptionId)
     {
         parent::__construct($model);
 

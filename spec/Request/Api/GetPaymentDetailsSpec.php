@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace spec\Sourcefabric\Payum\Mollie\Request\Api;
 
 use Payum\Core\Request\Generic;
