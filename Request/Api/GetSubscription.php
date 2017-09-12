@@ -17,8 +17,8 @@ class GetSubscription extends Generic
     /**
      * GetSubscription constructor.
      *
-     * @param ArrayObject  $model
-     * @param string $subscriptionId
+     * @param ArrayObject $model
+     * @param string      $subscriptionId
      */
     public function __construct(ArrayObject $model, string $subscriptionId)
     {
