@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sourcefabric\Payum\Mollie\Request\Api;
 
+use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Request\Generic;
 
 class GetSubscription extends Generic
@@ -16,10 +17,10 @@ class GetSubscription extends Generic
     /**
      * GetSubscription constructor.
      *
-     * @param array  $model
+     * @param ArrayObject  $model
      * @param string $subscriptionId
      */
-    public function __construct(array $model, string $subscriptionId)
+    public function __construct(ArrayObject $model, string $subscriptionId)
     {
         parent::__construct($model);
 

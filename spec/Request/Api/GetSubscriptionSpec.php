@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\Sourcefabric\Payum\Mollie\Request\Api;
 
+use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Request\Generic;
 use Sourcefabric\Payum\Mollie\Request\Api\GetSubscription;
 use PhpSpec\ObjectBehavior;
@@ -12,7 +13,7 @@ final class GetSubscriptionSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith([], 'sub_hgyt65');
+        $this->beConstructedWith(new ArrayObject(), 'sub_hgyt65');
     }
 
     function it_is_initializable()
