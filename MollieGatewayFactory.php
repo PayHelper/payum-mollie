@@ -49,9 +49,6 @@ class MollieGatewayFactory extends GatewayFactory
         ]);
 
         if (false == $config['payum.api']) {
-            $config['payum.default_options'] = array(
-                'sandbox' => true,
-            );
             $config->defaults($config['payum.default_options']);
             $config['payum.required_options'] = [
                 'apiKey',
