@@ -30,7 +30,7 @@ class MollieGatewayFactory extends GatewayFactory
         $config->defaults([
             'payum.factory_name' => 'mollie',
             'payum.factory_title' => 'Mollie',
-            'payum.template.sepa_mandate_confirmation' => '@payum_mollie/Action/sepa_mandate_confirmation.html.twig',
+            'payum.template.sepa_mandate_confirmation' => '@PayumMollie/Action/sepa_mandate_confirmation.html.twig',
             'payum.action.capture' => new CaptureAction(),
             'payum.action.refund' => new RefundAction(),
             'payum.action.cancel' => new CancelAction(),
@@ -63,5 +63,9 @@ class MollieGatewayFactory extends GatewayFactory
                 return $client;
             };
         }
+
+        $config['payum.paths'] = array_replace([
+            'PayumMollie' => __DIR__ . '/Resources/views',
+        ], $config['payum.paths'] ?: []);
     }
 }
