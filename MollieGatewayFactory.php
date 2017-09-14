@@ -65,7 +65,7 @@ class MollieGatewayFactory extends GatewayFactory
         }
 
         $config['payum.paths'] = array_replace([
-            'PayumMollie' => __DIR__ . '/Resources/views',
+            'PayumMollie' => __DIR__.'/Resources/views',
         ], $config['payum.paths'] ?: []);
     }
 }
