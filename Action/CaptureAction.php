@@ -16,6 +16,7 @@ use Payum\Core\Security\GenericTokenFactoryInterface;
 use Sourcefabric\Payum\Mollie\Request\Api\CreateCapture;
 use Sourcefabric\Payum\Mollie\Request\Api\CreateRecurringSubscription;
 use Sourcefabric\Payum\Mollie\Request\Api\CreateSepaMandate;
+use Sourcefabric\Payum\Mollie\Request\Api\GetPaymentDetails;
 
 class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTokenFactoryAwareInterface
 {
@@ -45,8 +46,11 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTo
 
         $model = ArrayObject::ensureArrayObject($request->getModel());
 
-        if (isset($model['payment']) && in_array($model['payment']['status'], ['cancelled', 'pending', 'failed', 'refunded', 'open'], true)) {
+        if (isset($model['payment'])) {
+            // update the model so we know if user canceled purchase process or not
+            $this->gateway->execute(new GetPaymentDetails($model, $model['payment']['id']));
             // payload will be send to the notify url
+
             return;
         }
 
