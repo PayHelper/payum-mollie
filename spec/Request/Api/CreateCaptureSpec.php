@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace spec\Sourcefabric\Payum\Mollie\Request\Api;
+namespace spec\PayHelper\Payum\Mollie\Request\Api;
 
 use Payum\Core\Request\Generic;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateCapture;
+use PayHelper\Payum\Mollie\Request\Api\CreateCapture;
 use PhpSpec\ObjectBehavior;
 
 final class CreateCaptureSpec extends ObjectBehavior

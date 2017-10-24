@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie\Action\Api;
+namespace PayHelper\Payum\Mollie\Action\Api;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\ApiAwareTrait;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateCustomer;
+use PayHelper\Payum\Mollie\Request\Api\CreateCustomer;
 
 class CreateCustomerAction implements ActionInterface, ApiAwareInterface
 {

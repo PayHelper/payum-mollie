@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie\Action;
+namespace PayHelper\Payum\Mollie\Action;
 
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Reply\HttpResponse;
 use Payum\Core\Request\GetHttpRequest;
 use Payum\Core\Request\Notify;
-use Sourcefabric\Payum\Mollie\Action\Api\BaseApiAwareAction;
-use Sourcefabric\Payum\Mollie\Request\Api\GetPaymentDetails;
-use Sourcefabric\Payum\Mollie\Request\Api\GetSubscription;
+use PayHelper\Payum\Mollie\Action\Api\BaseApiAwareAction;
+use PayHelper\Payum\Mollie\Request\Api\GetPaymentDetails;
+use PayHelper\Payum\Mollie\Request\Api\GetSubscription;
 
 class NotifyAction extends BaseApiAwareAction
 {

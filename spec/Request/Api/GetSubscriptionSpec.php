@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace spec\Sourcefabric\Payum\Mollie\Request\Api;
+namespace spec\PayHelper\Payum\Mollie\Request\Api;
 
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Request\Generic;
-use Sourcefabric\Payum\Mollie\Request\Api\GetSubscription;
+use PayHelper\Payum\Mollie\Request\Api\GetSubscription;
 use PhpSpec\ObjectBehavior;
 
 final class GetSubscriptionSpec extends ObjectBehavior

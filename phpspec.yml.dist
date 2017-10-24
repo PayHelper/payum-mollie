@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: Sourcefabric\Payum\Mollie
-        psr4_prefix: Sourcefabric\Payum\Mollie
+        namespace: PayHelper\Payum\Mollie
+        psr4_prefix: PayHelper\Payum\Mollie
         src_path: .

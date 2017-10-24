@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie;
+namespace PayHelper\Payum\Mollie;
 
-use Sourcefabric\Payum\Mollie\Action\Api\CancelRecurringSubscriptionAction;
-use Sourcefabric\Payum\Mollie\Action\Api\CreateCaptureAction;
-use Sourcefabric\Payum\Mollie\Action\Api\CreateCustomerAction;
-use Sourcefabric\Payum\Mollie\Action\Api\CreateRecurringSubscriptionAction;
-use Sourcefabric\Payum\Mollie\Action\Api\CreateSepaMandateAction;
-use Sourcefabric\Payum\Mollie\Action\Api\GetPaymentDetailsAction;
-use Sourcefabric\Payum\Mollie\Action\Api\GetSubscriptionAction;
-use Sourcefabric\Payum\Mollie\Action\CancelAction;
-use Sourcefabric\Payum\Mollie\Action\ConvertPaymentAction;
-use Sourcefabric\Payum\Mollie\Action\CaptureAction;
-use Sourcefabric\Payum\Mollie\Action\NotifyAction;
-use Sourcefabric\Payum\Mollie\Action\RefundAction;
-use Sourcefabric\Payum\Mollie\Action\StatusAction;
+use PayHelper\Payum\Mollie\Action\Api\CancelRecurringSubscriptionAction;
+use PayHelper\Payum\Mollie\Action\Api\CreateCaptureAction;
+use PayHelper\Payum\Mollie\Action\Api\CreateCustomerAction;
+use PayHelper\Payum\Mollie\Action\Api\CreateRecurringSubscriptionAction;
+use PayHelper\Payum\Mollie\Action\Api\CreateSepaMandateAction;
+use PayHelper\Payum\Mollie\Action\Api\GetPaymentDetailsAction;
+use PayHelper\Payum\Mollie\Action\Api\GetSubscriptionAction;
+use PayHelper\Payum\Mollie\Action\CancelAction;
+use PayHelper\Payum\Mollie\Action\ConvertPaymentAction;
+use PayHelper\Payum\Mollie\Action\CaptureAction;
+use PayHelper\Payum\Mollie\Action\NotifyAction;
+use PayHelper\Payum\Mollie\Action\RefundAction;
+use PayHelper\Payum\Mollie\Action\StatusAction;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayFactory;
 

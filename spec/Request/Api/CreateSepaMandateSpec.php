@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Sourcefabric\Payum\Mollie\Request\Api;
+namespace spec\PayHelper\Payum\Mollie\Request\Api;
 
 use Payum\Core\Request\Generic;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateSepaMandate;
+use PayHelper\Payum\Mollie\Request\Api\CreateSepaMandate;
 use PhpSpec\ObjectBehavior;
 
 final class CreateSepaMandateSpec extends ObjectBehavior

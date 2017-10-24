@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace spec\Sourcefabric\Payum\Mollie\Action;
+namespace spec\PayHelper\Payum\Mollie\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Request\GetStatusInterface;
-use Sourcefabric\Payum\Mollie\Action\StatusAction;
+use PayHelper\Payum\Mollie\Action\StatusAction;
 use PhpSpec\ObjectBehavior;
 
 final class StatusActionSpec extends ObjectBehavior

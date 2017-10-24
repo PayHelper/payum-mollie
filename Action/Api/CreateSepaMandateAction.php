@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie\Action\Api;
+namespace PayHelper\Payum\Mollie\Action\Api;
 
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\LogicException;
@@ -10,8 +10,8 @@ use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Reply\HttpResponse;
 use Payum\Core\Request\GetHttpRequest;
 use Payum\Core\Request\RenderTemplate;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateCustomer;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateSepaMandate;
+use PayHelper\Payum\Mollie\Request\Api\CreateCustomer;
+use PayHelper\Payum\Mollie\Request\Api\CreateSepaMandate;
 
 class CreateSepaMandateAction extends BaseApiAwareAction
 {

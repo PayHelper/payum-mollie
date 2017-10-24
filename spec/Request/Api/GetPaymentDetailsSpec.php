@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Sourcefabric\Payum\Mollie\Request\Api;
+namespace spec\PayHelper\Payum\Mollie\Request\Api;
 
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Request\Generic;
-use Sourcefabric\Payum\Mollie\Request\Api\GetPaymentDetails;
+use PayHelper\Payum\Mollie\Request\Api\GetPaymentDetails;
 use PhpSpec\ObjectBehavior;
 
 final class GetPaymentDetailsSpec extends ObjectBehavior

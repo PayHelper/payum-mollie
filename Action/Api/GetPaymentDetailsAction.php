@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie\Action\Api;
+namespace PayHelper\Payum\Mollie\Action\Api;
 
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\LogicException;
 use Payum\Core\Exception\RequestNotSupportedException;
-use Sourcefabric\Payum\Mollie\Request\Api\GetPaymentDetails;
+use PayHelper\Payum\Mollie\Request\Api\GetPaymentDetails;
 
 class GetPaymentDetailsAction extends BaseApiAwareAction
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace spec\Sourcefabric\Payum\Mollie\Action;
+namespace spec\PayHelper\Payum\Mollie\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Request\Notify;
-use Sourcefabric\Payum\Mollie\Action\Api\BaseApiAwareAction;
-use Sourcefabric\Payum\Mollie\Action\NotifyAction;
+use PayHelper\Payum\Mollie\Action\Api\BaseApiAwareAction;
+use PayHelper\Payum\Mollie\Action\NotifyAction;
 use PhpSpec\ObjectBehavior;
 
 final class NotifyActionSpec extends ObjectBehavior

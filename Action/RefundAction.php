@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie\Action;
+namespace PayHelper\Payum\Mollie\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;

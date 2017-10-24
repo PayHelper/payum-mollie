@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie\Request\Api;
+namespace PayHelper\Payum\Mollie\Request\Api;
 
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Request\Generic;

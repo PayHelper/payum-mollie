@@ -30,7 +30,7 @@ $payum
 ```php
 use Payum\Core\Request\Capture;
 use Payum\Core\Security\SensitiveValue;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateSepaMandate;
+use PayHelper\Payum\Mollie\Request\Api\CreateSepaMandate;
 
 $payment = [];
 $payment['method'] = 'directdebit';

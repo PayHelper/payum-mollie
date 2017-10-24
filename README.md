@@ -23,7 +23,7 @@ Register the Mollie Payum factory using `PayumBuilder`:
 
 ```php
 use Payum\Core\GatewayFactoryInterface;
-use Sourcefabric\Payum\Mollie\MollieGatewayFactory;
+use PayHelper\Payum\Mollie\MollieGatewayFactory;
 
 $payumBuilder->addGatewayFactory('mollie', function(array $config, GatewayFactoryInterface $gatewayFactory) {
     return new MollieGatewayFactory($config, $gatewayFactory);
@@ -65,7 +65,7 @@ composer require payum/payum-bundle ^2.0
 services:
     app.payum.mollie.factory:
         class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
-        arguments: [Sourcefabric\Payum\Mollie\MollieGatewayFactory]
+        arguments: [PayHelper\Payum\Mollie\MollieGatewayFactory]
         tags:
             - { name: payum.gateway_factory_builder, factory: mollie }
 ```

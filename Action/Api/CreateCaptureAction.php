@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie\Action\Api;
+namespace PayHelper\Payum\Mollie\Action\Api;
 
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Reply\HttpRedirect;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateCapture;
+use PayHelper\Payum\Mollie\Request\Api\CreateCapture;
 
 class CreateCaptureAction extends BaseApiAwareAction
 {

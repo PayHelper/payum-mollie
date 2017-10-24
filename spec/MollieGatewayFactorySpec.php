@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace spec\Sourcefabric\Payum\Mollie;
+namespace spec\PayHelper\Payum\Mollie;
 
 use Payum\Core\GatewayFactory;
 use Payum\Core\GatewayFactoryInterface;
-use Sourcefabric\Payum\Mollie\MollieGatewayFactory;
+use PayHelper\Payum\Mollie\MollieGatewayFactory;
 use PhpSpec\ObjectBehavior;
 
 final class MollieGatewayFactorySpec extends ObjectBehavior

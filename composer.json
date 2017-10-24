@@ -1,5 +1,5 @@
 {
-    "name": "sourcefabric/payum-mollie",
+    "name": "payhelper/payum-mollie",
     "type": "library",
     "description": "The Payum extension. It provides Mollie payment integration.",
     "keywords": ["payment", "payum", "mollie", "sepa", "directdebit", "creditcard"],
@@ -26,11 +26,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Sourcefabric\\Payum\\Mollie\\": ""
+            "PayHelper\\Payum\\Mollie\\": ""
         }
     },
     "autoload-dev": {
-        "psr-4": { "Sourcefabric\\Payum\\Mollie\\spec\\": "spec/" }
+        "psr-4": { "PayHelper\\Payum\\Mollie\\spec\\": "spec/" }
     },
     "extra": {
         "branch-alias": {

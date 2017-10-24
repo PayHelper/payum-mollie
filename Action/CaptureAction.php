@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sourcefabric\Payum\Mollie\Action;
+namespace PayHelper\Payum\Mollie\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
@@ -13,10 +13,10 @@ use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Request\GetHttpRequest;
 use Payum\Core\Security\GenericTokenFactoryAwareInterface;
 use Payum\Core\Security\GenericTokenFactoryInterface;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateCapture;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateRecurringSubscription;
-use Sourcefabric\Payum\Mollie\Request\Api\CreateSepaMandate;
-use Sourcefabric\Payum\Mollie\Request\Api\GetPaymentDetails;
+use PayHelper\Payum\Mollie\Request\Api\CreateCapture;
+use PayHelper\Payum\Mollie\Request\Api\CreateRecurringSubscription;
+use PayHelper\Payum\Mollie\Request\Api\CreateSepaMandate;
+use PayHelper\Payum\Mollie\Request\Api\GetPaymentDetails;
 
 class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTokenFactoryAwareInterface
 {
