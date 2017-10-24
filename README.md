@@ -1,4 +1,4 @@
-# Payum Mollie Extension [![Build Status](https://travis-ci.org/sourcefabric/payum-mollie.svg?branch=master)](https://travis-ci.org/sourcefabric/payum-mollie) [![StyleCI](https://styleci.io/repos/101880694/shield?branch=master)](https://styleci.io/repos/101880694)
+# Payum Mollie Extension [![Build Status](https://travis-ci.org/PayHelper/payum-mollie.svg?branch=master)](https://travis-ci.org/PayHelper/payum-mollie) [![StyleCI](https://styleci.io/repos/101880694/shield?branch=master)](https://styleci.io/repos/101880694)
 
 The Payum extension. It provides [Mollie](https://www.mollie.com/en/) payment integration.
 
@@ -16,7 +16,7 @@ Installing the extension
 Install this extension as a Composer dependency by requiring it in a `composer.json` file:
 
 ```bash
-composer require sourcefabric/payum-mollie
+composer require payhelper/payum-mollie
 ```
 
 Register the Mollie Payum factory using `PayumBuilder`:
