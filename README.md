@@ -31,8 +31,7 @@ $payumBuilder->addGatewayFactory('mollie', function(array $config, GatewayFactor
 
 $payumBuilder->addGateway('mollie', [
     'factory' => 'mollie',
-    'apiKey' => api123456, // change this
-    'sandbox' => true // change this
+    'apiKey' => 'api123456', // change this
 ]);
 ``` 
 

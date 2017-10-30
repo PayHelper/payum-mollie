@@ -3,7 +3,6 @@
 One-off SEPA Direct Debits are supported.
 
 * [Capture](#capture)
-* [Create Mandate](#create-mandate)
 * [Symfony integration](#symfony-integration)
 
 ## Capture
