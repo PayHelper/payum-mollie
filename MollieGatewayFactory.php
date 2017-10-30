@@ -9,6 +9,7 @@ use PayHelper\Payum\Mollie\Action\Api\CreateCaptureAction;
 use PayHelper\Payum\Mollie\Action\Api\CreateCustomerAction;
 use PayHelper\Payum\Mollie\Action\Api\CreateRecurringSubscriptionAction;
 use PayHelper\Payum\Mollie\Action\Api\CreateSepaMandateAction;
+use PayHelper\Payum\Mollie\Action\Api\CreateSepaOneOffPaymentAction;
 use PayHelper\Payum\Mollie\Action\Api\GetPaymentDetailsAction;
 use PayHelper\Payum\Mollie\Action\Api\GetSubscriptionAction;
 use PayHelper\Payum\Mollie\Action\CancelAction;
@@ -46,6 +47,7 @@ class MollieGatewayFactory extends GatewayFactory
             'payum.action.api.create_recurring_subscription' => new CreateRecurringSubscriptionAction(),
             'payum.action.api.get_payment_details' => new GetPaymentDetailsAction(),
             'payum.action.api.get_subscription_details' => new GetSubscriptionAction(),
+            'payum.action.api.create_sepa_one_off_payment' => new CreateSepaOneOffPaymentAction(),
         ]);
 
         if (false == $config['payum.api']) {

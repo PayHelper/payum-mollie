@@ -1,6 +1,6 @@
-# Recurring SEPA Direct Debit
+# One-off SEPA Direct Debit
 
-Recurring SEPA Direct Debits are supported.
+One-off SEPA Direct Debits are supported.
 
 * [Capture](#capture)
 * [Create Mandate](#create-mandate)
@@ -16,30 +16,15 @@ then it is automatically captured via Notify request.
 use Payum\Core\Request\Capture;
 
 $payment = [];
-$payment['method'] = 'directdebit';
-$payment['interval'] = '1 month'; // 1 month, 3 months, 1 year etc.
-$payment['startDate'] = '2017-09-01'; // in yyyy-mm-dd format or leave empty to set current date
+$payment['method'] = 'directdebit_oneoff';
+$payment['amount'] = '20';
+$payment['currency'] = 'EUR';
+$payment['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489');
+$payment['sepaHolder'] = SensitiveValue::ensureSensitive('Doe');
 
 $payum
     ->getGateway('mollie')
     ->execute(new Capture($payment));
-```
-
-## Create Mandate
-
-```php
-use Payum\Core\Request\Capture;
-use Payum\Core\Security\SensitiveValue;
-use PayHelper\Payum\Mollie\Request\Api\CreateSepaMandate;
-
-$payment = [];
-$payment['method'] = 'directdebit';
-$payment['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489');
-$payment['sepaHolder'] = 'Doe';
-
-$payum
-    ->getGateway('mollie')
-    ->execute(new CreateSepaMandate($payment));
 ```
 
 # Symfony integration:
@@ -63,13 +48,11 @@ class PaymentController extends Controller
 
         /** @var \Acme\PaymentBundle\Entity\PaymentDetails $details */
         $details = $storage->create();
-        $details['method'] = 'directdebit';
+        $details['method'] = 'directdebit_oneoff';
         $details['currency'] = 'EUR';
         $details['amount'] = 5;
         $details['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489');
-        $details['sepaHolder'] = 'Doe';
-        $details['interval'] = '1 month'; // 1 month, 3 months, 1 year etc.
-        $details['startDate'] = '2017-09-01'; // in yyyy-mm-dd format or leave empty to set current date
+        $details['sepaHolder'] = SensitiveValue::ensureSensitive('Doe');
 
         $storage->update($details);
 
