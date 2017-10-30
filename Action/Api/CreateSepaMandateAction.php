@@ -46,7 +46,7 @@ class CreateSepaMandateAction extends BaseApiAwareAction
             $postParams = [];
             parse_str($httpRequest->content, $postParams);
 
-            if (array_key_exists('mandate_id', $postParams) && null !== $postParams['mandate_id'] && $postParams['mandate_id'] === $model['mandate']['id']) {
+            if (array_key_exists('mandate_id', $postParams) && null !== $postParams['mandate_id'] && $model['mandate']['id'] === $postParams['mandate_id']) {
                 // mandate has been confirmed by the user
 
                 return;
