@@ -9,6 +9,7 @@ use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\ApiAwareTrait;
 use Payum\Core\Bridge\Spl\ArrayObject;
+use Payum\Core\Exception\LogicException;
 use Payum\Core\Exception\RequestNotSupportedException;
 
 class CreateSepaOneOffPaymentAction implements ActionInterface, ApiAwareInterface
@@ -40,9 +41,7 @@ class CreateSepaOneOffPaymentAction implements ActionInterface, ApiAwareInterfac
         $mandate = ArrayObject::ensureArrayObject($response);
 
         if (\Mollie_API_Object_Customer_Mandate::STATUS_VALID !== $mandate['status']) {
-            // mandate invalid
-            dump($mandate);
-            die;
+            throw new LogicException('Mandate is invalid.');
         }
 
         $model->replace(['mandate' => (array) $mandate]);
@@ -52,7 +51,7 @@ class CreateSepaOneOffPaymentAction implements ActionInterface, ApiAwareInterfac
             'description' => 'An on-demand payment (one-off)',
             'recurringType' => \Mollie_API_Object_Payment::RECURRINGTYPE_RECURRING,
             'redirectUrl' => $model['returnUrl'],
-            'webhookUrl' => 'https://requestb.in/1fe0vmv1', // $model['notifyUrl']
+            'webhookUrl' => $model['notifyUrl'],
             'customerId' => $model['customer']['id'],
         ]);
 
