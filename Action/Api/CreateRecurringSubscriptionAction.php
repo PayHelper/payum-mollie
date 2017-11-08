@@ -36,7 +36,7 @@ class CreateRecurringSubscriptionAction implements ActionInterface, ApiAwareInte
             'interval' => $model['interval'],
             'description' => sprintf('Recurring subscription for customer %s', $model['customer']['id']),
             'method' => $model['method'],
-            'webhookUrl' => 'https://requestb.in/qnd8b6qn',//$model['notifyUrl'],
+            'webhookUrl' => $model['notifyUrl'],
             'startDate' => $model['startDate'],
         ]);
 

@@ -60,7 +60,6 @@ class CreateSepaMandateAction extends BaseApiAwareAction
             'method' => $model['method'],
             'consumerAccount' => $model['sepaIban']->get(),
             'consumerName' => $model['sepaHolder']->get(),
-
         ];
 
         if (isset($model['sepaBic'])) {
