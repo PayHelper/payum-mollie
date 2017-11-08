@@ -19,6 +19,8 @@ $payment = [];
 $payment['method'] = 'directdebit';
 $payment['interval'] = '1 month'; // 1 month, 3 months, 1 year etc.
 $payment['startDate'] = '2017-09-01'; // in yyyy-mm-dd format or leave empty to set current date
+$payment['sepaBic'] = 'AAABBBCF2'; // optional
+$payment['email'] = 'email@example.com'; // optional
 
 $payum
     ->getGateway('mollie')
@@ -36,6 +38,8 @@ $payment = [];
 $payment['method'] = 'directdebit';
 $payment['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489');
 $payment['sepaHolder'] = 'Doe';
+$payment['sepaBic'] = 'AAABBBCF2'; // optional
+$payment['email'] = 'email@example.com'; // optional
 
 $payum
     ->getGateway('mollie')
@@ -68,6 +72,8 @@ class PaymentController extends Controller
         $details['amount'] = 5;
         $details['sepaIban'] = SensitiveValue::ensureSensitive('DE69103442341234545489');
         $details['sepaHolder'] = 'Doe';
+        $payment['sepaBic'] = 'AAABBBCF2'; // optional
+        $payment['email'] = 'email@example.com'; // optional
         $details['interval'] = '1 month'; // 1 month, 3 months, 1 year etc.
         $details['startDate'] = '2017-09-01'; // in yyyy-mm-dd format or leave empty to set current date
 

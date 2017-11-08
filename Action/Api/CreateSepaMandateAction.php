@@ -56,11 +56,18 @@ class CreateSepaMandateAction extends BaseApiAwareAction
         $this->gateway->execute(new CreateCustomer($model));
         $model->validateNotEmpty(['sepaIban', 'sepaHolder', 'customer']);
 
-        $response = $this->api->customers_mandates->withParentId($model['customer']['id'])->create([
+        $data = [
             'method' => $model['method'],
             'consumerAccount' => $model['sepaIban']->get(),
             'consumerName' => $model['sepaHolder']->get(),
-        ]);
+
+        ];
+
+        if (isset($model['sepaBic'])) {
+            $data['consumerBic'] = $model['sepaBic']->get();
+        }
+
+        $response = $this->api->customers_mandates->withParentId($model['customer']['id'])->create($data);
 
         $mandate = ArrayObject::ensureArrayObject($response);
 

@@ -29,10 +29,12 @@ class CreateCustomerAction implements ActionInterface, ApiAwareInterface
 
         $model = ArrayObject::ensureArrayObject($request->getModel());
 
-        $customer = $this->api->customers->create([
-            'name' => '',
-            'email' => '',
-        ]);
+        $data = ['name' => ''];
+
+        if (isset($model['email'])) {
+            $data['email'] = $model['email'];
+        }
+        $customer = $this->api->customers->create($data);
 
         $model->replace(['customer' => (array) $customer]);
     }
