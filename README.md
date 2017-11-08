@@ -32,6 +32,7 @@ $payumBuilder->addGatewayFactory('mollie', function(array $config, GatewayFactor
 $payumBuilder->addGateway('mollie', [
     'factory' => 'mollie',
     'apiKey' => 'api123456', // change this
+    'method' => 'creditcard', // one of directdebit, creditcard or directdebit_oneoff
 ]);
 ``` 
 
@@ -80,7 +81,7 @@ payum:
         mollie:
             factory: mollie
             apiKey: api123456 # change this
-            sandbox: true # change this
+            method: creditcard # one of directdebit, creditcard or directdebit_oneoff
 ```
 
 4. Gateway usage
