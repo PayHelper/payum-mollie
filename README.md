@@ -45,7 +45,7 @@ Check the documentation for each payment method to find out which fields are req
 
 - [Recurring SEPA Direct Debit](Resources/doc/sepa_direct_debit.md)
 - [One-off SEPA Direct Debit](Resources/doc/oneoff_sepa_direct_debit.md)
-- [Credit Card](Resources/doc/credit_card.md)
+- [Checkout Mollie](Resources/doc/checkout_mollie.md) For this method the customer will be forward to Mollie checkout page and he could choose any enabled payment method like credit card, Bancontact, etc.
 
 Symfony integration
 -------------------
