@@ -39,9 +39,8 @@ class PaymentController extends Controller
 
         /** @var \Acme\PaymentBundle\Entity\PaymentDetails $details */
         $details = $storage->create();
-        $details['method'] = 'creditcard';
         $details['currency'] = 'EUR';
-        $details['amount'] = 5;
+        $details['amount'] = 5.42;
 
         $storage->update($details);
 

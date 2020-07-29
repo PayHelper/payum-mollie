@@ -84,18 +84,24 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTo
             $model['clientIp'] = $httpRequest->clientIp;
         }
 
-        if (\Mollie_API_Object_Method::DIRECTDEBIT === $model['method']) {
-            $this->gateway->execute(new CreateSepaMandate($model));
-            $this->gateway->execute(new CreateRecurringSubscription($model));
+        $method = NULL;
+        if(isset($model['method'])) {
+            $method = $model['method'];
         }
 
-        if (Constants::METHOD_DIRECTDEBIT_ONEOFF === $model['method']) {
-            $this->gateway->execute(new CreateCustomer($model));
-            $this->gateway->execute(new CreateSepaOneOffPayment($model));
-        }
-
-        if (\Mollie_API_Object_Method::CREDITCARD === $model['method']) {
-            $this->gateway->execute(new CreateCapture($model));
+        switch ($method) {
+            case \Mollie_API_Object_Method::DIRECTDEBIT:
+                $this->gateway->execute(new CreateSepaMandate($model));
+                $this->gateway->execute(new CreateRecurringSubscription($model));
+                break;
+            case Constants::METHOD_DIRECTDEBIT_ONEOFF:
+                $this->gateway->execute(new CreateCustomer($model));
+                $this->gateway->execute(new CreateSepaOneOffPayment($model));
+                break;
+            case \Mollie_API_Object_Method::CREDITCARD:
+            default:
+                $this->gateway->execute(new CreateCapture($model));
+                break;
         }
     }
 

@@ -25,7 +25,6 @@ class CreateCaptureAction extends BaseApiAwareAction
             'description' => $model['description'],
             'redirectUrl' => $model['returnUrl'],
             'webhookUrl' => $model['notifyUrl'],
-            'method' => \Mollie_API_Object_Method::CREDITCARD,
             'metadata' => $model['metadata'],
         ]);
 
