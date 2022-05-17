@@ -1,14 +1,14 @@
 {
-    "name": "payhelper/payum-mollie",
+    "name": "webbaard/payum-mollie",
     "type": "library",
-    "description": "The Payum extension. It provides Mollie payment integration.",
+    "description": "The Payum extension. It provides Mollie payment integration. used to be maintained by Rafał Muszyński but couldn't see any activity",
     "keywords": ["payment", "payum", "mollie", "sepa", "directdebit", "creditcard"],
     "homepage": "https://sourcefabric.org",
     "license": "GPLv3",
     "authors": [
         {
-            "name": "Rafał Muszyński",
-            "email": "rafal.muszynski@sourcefabric.org"
+            "name": "Tim Huijzers",
+            "email": "webbaard@gmail.com"
         }
     ],
     "require": {
