@@ -16,7 +16,7 @@ Installing the extension
 Install this extension as a Composer dependency by requiring it in a `composer.json` file:
 
 ```bash
-composer require payhelper/payum-mollie
+composer require webbaard/payum-mollie
 ```
 
 Register the Mollie Payum factory using `PayumBuilder`:
