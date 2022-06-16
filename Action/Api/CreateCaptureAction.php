@@ -30,7 +30,7 @@ class CreateCaptureAction extends BaseApiAwareAction
         ]);
         $model->replace(['payment' => (array) $result]);
 
-        throw new HttpRedirect($result->links->paymentUrl);
+        throw new HttpRedirect($result->_links->checkout->href);
     }
 
     /**
