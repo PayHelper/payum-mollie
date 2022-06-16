@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PayHelper\Payum\Mollie;
 
+use Mollie\Api\MollieApiClient;
+use Mollie\Api\Resources\Refund;
 use PayHelper\Payum\Mollie\Action\Api\CancelRecurringSubscriptionAction;
 use PayHelper\Payum\Mollie\Action\Api\CreateCaptureAction;
 use PayHelper\Payum\Mollie\Action\Api\CreateCustomerAction;
@@ -59,7 +61,7 @@ class MollieGatewayFactory extends GatewayFactory
             $config['payum.api'] = function (ArrayObject $config) {
                 $config->validateNotEmpty($config['payum.required_options']);
 
-                $client = new \Mollie_API_Client();
+                $client = new MollieApiClient();
                 $client->setApiKey($config['apiKey']);
 
                 return $client;

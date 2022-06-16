@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace PayHelper\Payum\Mollie\Action\Api;
 
+use Mollie\Api\MollieApiClient;
+use Mollie\Api\Types\MandateStatus;
+use Mollie\Api\Types\PaymentMethod;
+use Mollie\Api\Types\SequenceType;
 use PayHelper\Payum\Mollie\Request\Api\CreateSepaOneOffPayment;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
@@ -18,7 +22,7 @@ class CreateSepaOneOffPaymentAction implements ActionInterface, ApiAwareInterfac
 
     public function __construct()
     {
-        $this->apiClass = \Mollie_API_Client::class;
+        $this->apiClass = MollieApiClient::class;
     }
 
     /**
@@ -33,23 +37,26 @@ class CreateSepaOneOffPaymentAction implements ActionInterface, ApiAwareInterfac
         $model->validateNotEmpty(['sepaIban', 'sepaHolder', 'customer']);
 
         $response = $this->api->customers_mandates->withParentId($model['customer']['id'])->create([
-            'method' => \Mollie_API_Object_Method::DIRECTDEBIT,
+            'method' => PaymentMethod::DIRECTDEBIT,
             'consumerAccount' => $model['sepaIban']->get(),
             'consumerName' => $model['sepaHolder']->get(),
         ]);
 
         $mandate = ArrayObject::ensureArrayObject($response);
 
-        if (\Mollie_API_Object_Customer_Mandate::STATUS_VALID !== $mandate['status']) {
+        if (MandateStatus::STATUS_VALID !== $mandate['status']) {
             throw new LogicException('Mandate is invalid.');
         }
 
         $model->replace(['mandate' => (array) $mandate]);
 
         $payment = $this->api->payments->create([
-            'amount' => $model['amount'],
+            'amount' => [
+                'value' => sprintf('%.2f', $model['amount']),
+                'currency' => $model['currency'],
+            ],
             'description' => 'An on-demand payment (one-off)',
-            'recurringType' => \Mollie_API_Object_Payment::RECURRINGTYPE_RECURRING,
+            'recurringType' => SequenceType::SEQUENCETYPE_RECURRING,
             'redirectUrl' => $model['returnUrl'],
             'webhookUrl' => $model['notifyUrl'],
             'customerId' => $model['customer']['id'],

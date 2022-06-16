@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PayHelper\Payum\Mollie\Action\Api;
 
+use Mollie\Api\MollieApiClient;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\ApiAwareTrait;
@@ -17,6 +18,6 @@ abstract class BaseApiAwareAction implements ActionInterface, GatewayAwareInterf
 
     public function __construct()
     {
-        $this->apiClass = \Mollie_API_Client::class;
+        $this->apiClass = MollieApiClient::class;
     }
 }
