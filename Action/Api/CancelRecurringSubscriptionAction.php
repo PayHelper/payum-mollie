@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PayHelper\Payum\Mollie\Action\Api;
 
+use Mollie\Api\Resources\Subscription;
+use Mollie\Api\Types\SubscriptionStatus;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Request\Cancel;
@@ -19,7 +21,7 @@ class CancelRecurringSubscriptionAction extends BaseApiAwareAction
 
         $model = ArrayObject::ensureArrayObject($request->getModel());
 
-        if (\Mollie_API_Object_Customer_Subscription::STATUS_CANCELLED ===
+        if (SubscriptionStatus::STATUS_CANCELED ===
             $model['subscription']['status']) {
             return;
         }

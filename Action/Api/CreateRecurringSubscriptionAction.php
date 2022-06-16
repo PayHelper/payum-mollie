@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PayHelper\Payum\Mollie\Action\Api;
 
+use Mollie\Api\MollieApiClient;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\ApiAwareTrait;
@@ -17,7 +18,7 @@ class CreateRecurringSubscriptionAction implements ActionInterface, ApiAwareInte
 
     public function __construct()
     {
-        $this->apiClass = \Mollie_API_Client::class;
+        $this->apiClass = MollieApiClient::class;
     }
 
     /**
@@ -32,7 +33,10 @@ class CreateRecurringSubscriptionAction implements ActionInterface, ApiAwareInte
         $model->validateNotEmpty(['interval', 'startDate', 'customer']);
 
         $subscription = $this->api->customers_subscriptions->withParentId($model['customer']['id'])->create([
-            'amount' => $model['amount'],
+            'amount' => [
+                'value' => sprintf('%.2f', $model['amount']),
+                'currency' => $model['currency'],
+            ],
             'interval' => $model['interval'],
             'description' => sprintf('Recurring subscription for customer %s', $model['customer']['id']),
             'method' => $model['method'],
