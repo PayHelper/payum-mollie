@@ -34,7 +34,7 @@ class StatusAction implements ActionInterface
                     $request->markPending();
 
                     break;
-                case SubscriptionStatus::STATUS_CANCELLED:
+                case SubscriptionStatus::STATUS_CANCELED:
                     $request->markCanceled();
 
                     break;
@@ -70,7 +70,7 @@ class StatusAction implements ActionInterface
                 $request->markCaptured();
 
                 break;
-            case PaymentStatus::STATUS_CANCELLED:
+            case PaymentStatus::STATUS_CANCELED:
                 $request->markCanceled();
 
                 break;
