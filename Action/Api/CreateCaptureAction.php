@@ -23,6 +23,7 @@ class CreateCaptureAction extends BaseApiAwareAction
                 'value' => sprintf('%.2f', $model['amount']),
                 'currency' => $model['currency'],
             ],
+            'method' => $model['method'],
             'description' => $model['description'],
             'redirectUrl' => $model['returnUrl'],
             'webhookUrl' => $model['notifyUrl'],
