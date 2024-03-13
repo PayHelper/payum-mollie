@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PayHelper\Payum\Mollie\Action;
 
 use Mollie\Api\Types\PaymentStatus;
+use Mollie\Api\Types\RefundStatus;
+use Mollie\Api\Types\SettlementStatus;
 use Mollie\Api\Types\SubscriptionStatus;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Request\GetStatusInterface;
@@ -82,7 +84,7 @@ class StatusAction implements ActionInterface
                 $request->markFailed();
 
                 break;
-            case PaymentStatus::STATUS_PAIDOUT:
+            case SettlementStatus::STATUS_PAIDOUT:
                 $request->markPayedout();
 
                 break;
@@ -90,7 +92,7 @@ class StatusAction implements ActionInterface
                 $request->markExpired();
 
                 break;
-            case PaymentStatus::STATUS_REFUNDED:
+            case RefundStatus::STATUS_REFUNDED:
                 $request->markRefunded();
 
                 break;
