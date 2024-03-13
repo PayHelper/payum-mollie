@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PayHelper\Payum\Mollie\Action;
 
+use Mollie\Api\Types\PaymentMethod;
 use PayHelper\Payum\Mollie\Constants;
 use PayHelper\Payum\Mollie\Request\Api\CreateCustomer;
 use PayHelper\Payum\Mollie\Request\Api\CreateSepaOneOffPayment;
@@ -90,7 +91,7 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTo
         }
 
         switch ($method) {
-            case \Mollie_API_Object_Method::DIRECTDEBIT:
+            case PaymentMethod::DIRECTDEBIT:
                 $this->gateway->execute(new CreateSepaMandate($model));
                 $this->gateway->execute(new CreateRecurringSubscription($model));
                 break;
@@ -98,7 +99,7 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTo
                 $this->gateway->execute(new CreateCustomer($model));
                 $this->gateway->execute(new CreateSepaOneOffPayment($model));
                 break;
-            case \Mollie_API_Object_Method::CREDITCARD:
+            case PaymentMethod::CREDITCARD:
             default:
                 $this->gateway->execute(new CreateCapture($model));
                 break;

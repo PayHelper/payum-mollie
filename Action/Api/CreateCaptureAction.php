@@ -17,20 +17,21 @@ class CreateCaptureAction extends BaseApiAwareAction
     public function execute($request)
     {
         RequestNotSupportedException::assertSupports($this, $request);
-
         $model = ArrayObject::ensureArrayObject($request->getModel());
-
         $result = $this->api->payments->create([
-            'amount' => $model['amount'],
+            'amount' => [
+                'value' => sprintf('%.2f', $model['amount']),
+                'currency' => $model['currency'],
+            ],
+            'method' => $model['method'],
             'description' => $model['description'],
             'redirectUrl' => $model['returnUrl'],
             'webhookUrl' => $model['notifyUrl'],
             'metadata' => $model['metadata'],
         ]);
-
         $model->replace(['payment' => (array) $result]);
 
-        throw new HttpRedirect($result->links->paymentUrl);
+        throw new HttpRedirect($result->_links->checkout->href);
     }
 
     /**
